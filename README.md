@@ -49,7 +49,7 @@ numpy is a prerequisite for the project and it can be easily installed by follow
 #### Description of Projects
 - main.py - Contains the entry point for the program
 - Simulator.py - Simulator class that does the main simulation [all main logic is in this file]
-- Parser.py - Parser class that parses the g-code string and extracts relevant parameters (for laser or go to command)
+- Parser.py - Parser class that parses the g-code string and extracts relevant command and parameters
 - LineSeg2D.py - Models a directed line segment in 2D
 - test_simulator.py - Contains unit tests for the main "Simulate" method of the Simulator class; Also contains 5 sample inputs for the program.
 
