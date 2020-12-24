@@ -10,7 +10,7 @@ class Simulator:
     # Constructor to create a simulator object
     # raw_gcode_str is the gcode as a raw string
     # n_rows is the number of rows in the grid
-    # n_clos is the number of columns in the grid
+    # n_cols is the number of columns in the grid
     def __init__(self, raw_gcode_str: str, n_rows: int, n_cols: int):
         self.raw_gcode_str = raw_gcode_str
         self.n_rows = n_rows
