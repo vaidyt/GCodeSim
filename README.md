@@ -39,9 +39,12 @@ The above should produce the following output:
 $ git clone https://github.com/vaidyt/GCodeSim.git
 $ cd GCodeSim
 $ python main.py
-NOTE
-numpy is a prerequisite for the project and it can be easily installed by following the instructions here - https://numpy.org/install/
 ```
+
+NOTE
+
+numpy is a prerequisite for the project and it can be easily installed by following the instructions here - https://numpy.org/install/
+
 
 #### Description of Projects
 - main.py - Contains the entry point for the program
