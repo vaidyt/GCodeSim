@@ -94,7 +94,7 @@ class Simulator:
 
         s = ""
         for i in range(self.n_rows):
-            this_str = ch[i, :].tostring().decode("utf-8")
+            this_str = ch[i, :].tobytes().decode("utf-8")
             s += this_str + "\n"
 
         return s
