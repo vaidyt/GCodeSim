@@ -44,7 +44,7 @@ $ python main.py
 #### NOTE
 
 - The program was tested in python 3.9.1
-- numpy is a prerequisite for the project and it can be easily installed by following the instructions here - https://numpy.org/install/ 
+- NumPy is a prerequisite for the project and it can be easily installed by following the instructions here - https://numpy.org/install/ 
 
 
 #### Description of Projects
