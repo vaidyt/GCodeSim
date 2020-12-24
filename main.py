@@ -1,8 +1,4 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
+# Entry point for the simulator
 import Simulator
 
 
@@ -99,5 +95,3 @@ def get_test_case_5():
 if __name__ == '__main__':
     p = get_test_case_2()
     print(simulate(p[0], p[1], p[2]))
-
-

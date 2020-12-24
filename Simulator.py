@@ -1,9 +1,9 @@
 import numpy as np
-import CommandType as CT
-import Parser
-import LineSeg2D as LS
+from CommandType import CommandType
+from Parser import Parser
+from LineSeg2D import LineSeg2D
 
-
+# Simulator class that simulates laser cutting
 class Simulator:
 
     # Constructor to create a simulator object
@@ -14,14 +14,14 @@ class Simulator:
         self.raw_gcode_str = raw_gcode_str
         self.n_rows = n_rows
         self.n_cols = n_cols
-        self.parser = Parser.Parser(raw_gcode_str)
+        self.parser = Parser(raw_gcode_str)
         self.x = 0
         self.y = 0
         self.laserHeadRadius = 0.5
         self.laser = False
         self.number_of_commands = self.parser.number_of_lines()
         self.grid = np.zeros((n_rows, n_cols), dtype=bool)
-        self.command = CT.CommandType.Unknown
+        self.command = CommandType.Unknown
 
     # Turns on a given cell (if it is not already turned on)
     def __turn_on_cell(self, x_int: int, y_int: int):
@@ -34,23 +34,23 @@ class Simulator:
         self.y = new_y
 
     # This method etches all the cells of the grid that are within
-    # laser head radius distance from the laser path
+    # laser head radius from the laser path
     def __mark_laser(self, new_x: float, new_y: float):
-        line = LS.LineSeg2D(self.x, self.y, new_x, new_y)
+        line = LineSeg2D(self.x, self.y, new_x, new_y)
 
         for Y in range(self.n_rows):
             for X in range(self.n_cols):
                 if line.distance_from_pt([X, Y]) <= self.laserHeadRadius:
                     self.__turn_on_cell(X, Y)
 
-    # processes the laser command
+    # processes the "Laser" command
     def __process_laser_command(self):
         if self.laser:
             self.__mark_laser(self.x, self.y)
 
         self.laser = not self.laser
 
-    # processes the go command
+    # processes the "Go" command
     def __process_go_command(self, new_x: float, new_y: float):
         if self.laser:
             self.__mark_laser(new_x, new_y)
@@ -62,24 +62,25 @@ class Simulator:
         return 0 <= new_x <= self.n_cols and 0 <= new_y <= self.n_rows
 
     # checks if the command is valid and/or X,Y coordinates are within bounds of the grid
-    def __check_validity(self, new_x: float, new_y: float) -> bool:
+    def __check_validity(self, command: CommandType, new_x: float, new_y: float) -> bool:
         s = True
-        if self.command == CT.CommandType.Unknown:
+        if command == CommandType.Unknown:
             print('Unknown command in G-Code; Currently, we only support G01 and M01 commands')
             s = False
-        elif self.command == CT.CommandType.Go and not self.__is_within_bounds(new_x, new_y):
+        elif command == CommandType.Go and not self.__is_within_bounds(new_x, new_y):
             print('Coordinate out of bounds; Please check the input coordinates in G-Code')
             s = False
 
         return s
 
-    # Orchestrator method that handles the current command
-    def __process(self, new_x: float, new_y: float):
-        if not self.__check_validity(new_x, new_y):
+    # Orchestrator method that handles the given command
+    def __process(self, command: CommandType, new_x: float, new_y: float):
+        if not self.__check_validity(command, new_x, new_y):
             raise
-        if self.command == CT.CommandType.LaserToggle:
+        self.command = command
+        if self.command == CommandType.LaserToggle:
             self.__process_laser_command()
-        elif self.command == CT.CommandType.Go:
+        elif self.command == CommandType.Go:
             self.__process_go_command(new_x, new_y)
 
     # Converts the bool grid to a raw string (for display purposes)
@@ -95,15 +96,14 @@ class Simulator:
 
         return s
 
-    # Main simulation method that does the simulation
+    # Main simulation method that does the simulation.
     # This method parses the lines in the g-code (one at a time)
-    # and handles either the go or laser command appropriate
-    # This method returns a string representation of the laser cutting
+    # and handles either the go or laser command appropriately.
+    # This method returns a string representation of the work piece
     def simulate(self) -> str:
 
         for i in range(self.number_of_commands):
             this_line = self.parser.parse(i)
-            self.command = this_line[0]
-            self.__process(this_line[1], this_line[2])
+            self.__process(this_line[0], this_line[1], this_line[2])
 
         return self.__get_string_grid()
