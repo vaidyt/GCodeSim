@@ -93,5 +93,5 @@ def get_test_case_5():
 
 
 if __name__ == '__main__':
-    p = get_test_case_2()
+    p = get_test_case_5()
     print(simulate(p[0], p[1], p[2]))

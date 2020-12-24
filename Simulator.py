@@ -3,6 +3,7 @@ from CommandType import CommandType
 from Parser import Parser
 from LineSeg2D import LineSeg2D
 
+
 # Simulator class that simulates laser cutting
 class Simulator:
 
@@ -15,13 +16,15 @@ class Simulator:
         self.n_rows = n_rows
         self.n_cols = n_cols
         self.parser = Parser(raw_gcode_str)
-        self.x = 0
-        self.y = 0
         self.laserHeadRadius = 0.5
-        self.laser = False
         self.number_of_commands = self.parser.number_of_lines()
         self.grid = np.zeros((n_rows, n_cols), dtype=bool)
+        self.__reset_state()
+
+    def __reset_state(self):
+        self.__set_xy(0, 0)
         self.command = CommandType.Unknown
+        self.laser = False
 
     # Turns on a given cell (if it is not already turned on)
     def __turn_on_cell(self, x_int: int, y_int: int):
@@ -105,5 +108,8 @@ class Simulator:
         for i in range(self.number_of_commands):
             this_line = self.parser.parse(i)
             self.__process(this_line[0], this_line[1], this_line[2])
+
+        # Reset the laser head to origin
+        self.__reset_state()
 
         return self.__get_string_grid()
