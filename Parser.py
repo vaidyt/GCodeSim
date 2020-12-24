@@ -17,7 +17,7 @@ class Parser:
             c = float(s[1:])
             return c
         else:
-            print("Invalid G-Code format")
+            print("Error: Invalid G-Code format")
             raise
 
     @staticmethod

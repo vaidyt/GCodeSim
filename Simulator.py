@@ -68,10 +68,10 @@ class Simulator:
     def __check_validity(self, command: CommandType, new_x: float, new_y: float) -> bool:
         s = True
         if command == CommandType.Unknown:
-            print('Unknown command in G-Code; Currently, we only support G01 and M01 commands')
+            print('Error: Unknown command in G-Code; Currently, we only support G01 and M01 commands')
             s = False
         elif command == CommandType.Go and not self.__is_within_bounds(new_x, new_y):
-            print('Coordinate out of bounds; Please check the input coordinates in G-Code')
+            print('Error: Coordinate out of bounds; Please check the input coordinates in G-Code')
             s = False
 
         return s
