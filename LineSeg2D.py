@@ -12,11 +12,11 @@ class LineSeg2D:
         self.len = self.length()
         self.u = self.unit_vector()
 
-    # Method to compute the length of the line segment
+    # Computes the length of the line segment
     def length(self):
         return la.norm(self.B - self.A)
 
-    # Method to compute the unit vector of the directed line segment
+    # Computes the unit vector of the directed line segment
     def unit_vector(self):
         if self.length() < np.finfo(float).eps:
             u = np.array([0, 0])
@@ -25,11 +25,11 @@ class LineSeg2D:
 
         return u
 
-    # Method to check if the line segment has collapsed in to a point or not
+    # Checks if the line segment has collapsed in to a point or not
     def is_degenerate(self) -> bool:
         return self.len <= np.finfo(float).eps
 
-    # Method to compute the shortest distance between the line segment and the given pt 'p'
+    # Computes the shortest distance between the line segment and the given pt 'p'
     def distance_from_pt(self, p) -> float:
         pt = np.array(p)  # convert to numpy array
 
@@ -40,7 +40,7 @@ class LineSeg2D:
 
         # We have a generic line segment
         ap = pt - self.A
-        # Project p on to the line segment and compute the projection
+        # Compute projection of p on to the line segment
         proj = np.dot(ap, self.u)
         if proj > self.length() or proj < 0:
             # projection falls outside the line segment

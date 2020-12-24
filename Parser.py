@@ -44,6 +44,7 @@ class Parser:
 
         return c, x, y
 
+    # Main parse method to parse the 'i-th' line of the g-code
     def parse(self, i: int):
         s = str.split(self.gcode[i])
         n = len(s)

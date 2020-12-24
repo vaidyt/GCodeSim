@@ -60,7 +60,7 @@ class Simulator:
 
         self.__set_xy(new_x, new_y)
 
-    # checks if the new_x and new_y are withing the bounds of the grid
+    # checks if the new_x and new_y are within the bounds of the grid
     def __is_within_bounds(self, new_x: float, new_y: float) -> bool:
         return 0 <= new_x <= self.n_cols and 0 <= new_y <= self.n_rows
 
@@ -99,7 +99,7 @@ class Simulator:
 
         return s
 
-    # Main simulation method that does the simulation.
+    # Main simulation method that orchestrates the simulation.
     # This method parses the lines in the g-code (one at a time)
     # and handles either the go or laser command appropriately.
     # This method returns a string representation of the work piece
