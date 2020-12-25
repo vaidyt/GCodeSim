@@ -38,17 +38,15 @@ class LineSeg2D:
             # Yes, so return the distance between one of the end pts and p
             return la.norm(pt - self.A)
 
-        # We have a generic line segment
-        ap = pt - self.A
         # Compute projection of p on to the line segment
-        proj = np.dot(ap, self.u)
+        proj = np.dot(pt - self.A, self.u)
         if proj > self.length() or proj < 0:
             # projection falls outside the line segment
             # so, d is simply the min distance between the ends pts and p
-            d = min(la.norm(self.A - pt), la.norm(self.B - pt))
+            d = min(la.norm(pt - self.A), la.norm(pt - self.B))
         else:
             # projection is within the line segment
             projected_pt = self.A + proj*self.u  # compute projected pt
-            d = la.norm(projected_pt - pt)  # d is simply the distance between projected pt and p
+            d = la.norm(pt - projected_pt)  # d is simply the distance between projected pt and p
 
         return d
