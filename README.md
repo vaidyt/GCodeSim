@@ -15,7 +15,7 @@ $ python main.py <gcode-infile> <n_rows> <n_cols>
 Mode 1 simply simulates one of the test cases
 
 ```sh
-$ BRep.CLI
+$ python main.py
 ```
 
 #### Mode 2 (with three parameters):
