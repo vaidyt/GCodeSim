@@ -2,37 +2,25 @@
 
 GCodeSim is a python program to simulate laser cutting process. Given the g-code string as input, the program simulates the laser cutting process and outputs the final cut pattern as a string.
 
-Currently, the program does not support any command line parameters. To change the input, modify main.py as follows:
+### Usage
+```sh
+$ python main.py <infile> <n_rows> <n_cols>
 ```
-if __name__ == '__main__':
-    p = TestSimulator.get_test_case_1()
-    print(simulate(p[0], p[1], p[2]))
-```
-or equivalently you can also modify the program as follows:
+- infile: Input g-code file
+- n_rows: Number of rows in the grid
+- n_cols: Number of rows in the grid
 
+#### Mode 1 (no parameters):
+
+Mode 1 simply simulates one of the test cases
+
+```sh
+$ BRep.CLI
 ```
-if __name__ == '__main__':
-    program = """
-    G01 X2.0 Y1.00
-    M01
-    G01 X6.00 Y1.00
-    M01
-    G01 X2.00 Y3.00
-    M01
-    G01 X6.00 Y3.00
-    M01
-    G01 X0.00 Y0.00
-    """
-    print(simulate(program, 5, 9))
-```
-The above should produce the following output:
-```
-.........
-..XXXXX..
-.........
-..XXXXX..
-.........
-```
+
+#### Mode 2 (with three parameters):
+
+Mode 2 can be used to run the program for any user defined g-code file for any required grid dimensions of size n_rows X n_cols. In this mode, the output is written to a file (instead of writing it to the screen)
 
 ### Build and Installation
 ```sh
@@ -54,6 +42,11 @@ $ python main.py
 - LineSeg2D.py - Models a directed line segment in 2D; This class has the method to compute the distance of a pt to the line segment
 - test_simulator.py - Contains unit tests for the main "simulate" method of the Simulator class; Also contains 5 sample inputs for the program.
 - test_LineSeg2D.py - Contains unit tests for "distance_from_pt" of LineSeg2D class
+- FormLogic_Logo - Contains the G-Code for the FormLogic logo. It also contains a MATLAB script and additional file/pictures used to generate this g-code. The output of the simulator for this g-code can be found [here]{https://github.com/vaidyt/GCodeSim/blob/main/Formlogic_Logo/FormLogic_logo_generated_output.txt}
+
+### ToDos
+- __make_laser_cut method of Simulator class needs to be vectorized
+- Additional error checks in Parser class (to handle invalid coordinates) to be implemented
 
 
 License
