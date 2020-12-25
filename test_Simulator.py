@@ -5,7 +5,7 @@ from Simulator import Simulator
 class TestSimulator(TestCase):
 
     @staticmethod
-    def get_test_case_1():
+    def get_test_case_1() -> list:
         program = """
         G01 X2.0 Y1.00
         M01
@@ -20,7 +20,7 @@ class TestSimulator(TestCase):
         return program, 5, 9
 
     @staticmethod
-    def get_test_case_2():
+    def get_test_case_2() -> list:
         program = """
         G01 X0.0 Y2.00
         M01
@@ -40,7 +40,7 @@ class TestSimulator(TestCase):
         return program, 5, 9
 
     @staticmethod
-    def get_test_case_3():
+    def get_test_case_3() -> list:
         program = """
         G01 X2.00 Y1.00
         M01
@@ -61,7 +61,7 @@ class TestSimulator(TestCase):
         return program, 5, 9
 
     @staticmethod
-    def get_test_case_4():
+    def get_test_case_4() -> list:
         program = """
         G01 X0.00 Y1.00
         M01
@@ -80,7 +80,7 @@ class TestSimulator(TestCase):
         return program, 3, 7
 
     @staticmethod
-    def get_test_case_5():
+    def get_test_case_5() -> list:
         program = """
         M01
         G01 X4.0 Y3.0

@@ -13,5 +13,5 @@ def simulate(program: str, n_rows: int, n_cols: int) -> str:
 
 
 if __name__ == '__main__':
-    p = TestSimulator.get_test_case_1()
+    p = TestSimulator.get_test_case_5()
     print(simulate(p[0], p[1], p[2]))

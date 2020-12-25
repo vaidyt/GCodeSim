@@ -17,7 +17,7 @@ class LineSeg2D:
         return la.norm(self.B - self.A)
 
     # Computes the unit vector of the directed line segment
-    def unit_vector(self):
+    def unit_vector(self) -> np.ndarray:
         if self.length() < np.finfo(float).eps:
             u = np.array([0, 0])
         else:

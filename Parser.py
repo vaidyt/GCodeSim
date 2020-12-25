@@ -22,7 +22,7 @@ class Parser:
             raise
 
     @staticmethod
-    def __parse_toggle_command(gcode_line):
+    def __parse_toggle_command(gcode_line) -> list:
         c = None
         if gcode_line[0] == 'M01':
             # we have a laser toggle instruction
@@ -33,7 +33,7 @@ class Parser:
         return c, None, None
 
     @staticmethod
-    def __parse_move_command(gcode_line):
+    def __parse_move_command(gcode_line) -> list:
         x = None
         y = None
         c = CommandType.Unknown
@@ -46,7 +46,7 @@ class Parser:
         return c, x, y
 
     # Main parse method to parse the 'i-th' line of the g-code
-    def parse(self, i: int):
+    def parse(self, i: int) -> list:
         s = str.split(self.gcode[i])
         n = len(s)
         if n == 1:
