@@ -12,7 +12,7 @@ $ python main.py <gcode-infile> <n_rows> <n_cols>
 
 #### Mode 1 (no parameters):
 
-Mode 1 simply simulates one of the test cases
+Mode 1 simply simulates one of the test cases. In this mode, the output is written to the screen.
 
 ```sh
 $ python main.py
@@ -20,7 +20,7 @@ $ python main.py
 
 #### Mode 2 (with three parameters):
 
-Mode 2 can be used to run the program for any user defined g-code file for any required grid dimensions of size n_rows X n_cols. In this mode, the output is written to a file (instead of writing it to the screen)
+Mode 2 can be used to run the program for any user defined g-code file for any required grid dimensions (n_rows X n_cols). In this mode, the output is written to a file.
 
 ### Build and Installation
 ```sh
@@ -45,7 +45,7 @@ $ python main.py
 - FormLogic_Logo - Contains the G-Code for reproducing the [FormLogic logo](https://github.com/vaidyt/GCodeSim/blob/main/Formlogic_Logo/MATLAB/formLogicLogo.jpg). It also contains a [MATLAB script](https://github.com/vaidyt/GCodeSim/blob/main/Formlogic_Logo/MATLAB/generateFormLogicLogo.m) and additional file/pictures used to generate this g-code. The output of the simulator for this g-code can be found [here](https://github.com/vaidyt/GCodeSim/blob/main/Formlogic_Logo/FormLogic_logo_generated_output.txt)
 
 ### ToDos
-- __make_laser_cut method of Simulator class needs to be vectorized
+- __make_laser_cut method in Simulator class needs to be vectorized (to accelerate the performance)
 - Additional error checks in Parser class (to handle invalid coordinates) to be implemented
 
 
