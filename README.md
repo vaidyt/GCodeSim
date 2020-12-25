@@ -53,6 +53,8 @@ $ python main.py
 - Parser.py - Parser class that parses the g-code string and extracts relevant commands and parameters
 - LineSeg2D.py - Models a directed line segment in 2D; This class has the method to compute the distance of a pt to the line segment
 - test_simulator.py - Contains unit tests for the main "Simulate" method of the Simulator class; Also contains 5 sample inputs for the program.
+- test_LineSeg2D.py - Contains unit tests for distance_from_pt of LineSeg2D class
+
 
 License
 ----
