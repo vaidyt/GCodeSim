@@ -1,6 +1,6 @@
 # GCodeSim
 
-GCodeSim is a python program to simulate laser cutting process. Given the g-code string as input, the program simulates the laser cutting process and outputs the final cut pattern as a string.
+GCodeSim is a python program to simulate laser cutting process. Given the g-code string or file as input, the program simulates the laser cutting process and outputs the final cut pattern as a string.
 
 ### Usage
 ```sh
