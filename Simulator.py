@@ -104,13 +104,21 @@ class Simulator:
     # This method parses the lines in the g-code (one at a time)
     # and handles either the go or laser command appropriately.
     # This method returns a string representation of the work piece
-    def simulate(self) -> str:
+    def simulate(self, verbose: bool = False) -> str:
 
+        total_lines = str(self.number_of_commands)
         for i in range(self.number_of_commands):
+            if verbose:
+                print("\rProcessing line " + str(i) + "\\" + total_lines + " - " +
+                      "{:.0f}".format(100*i/self.number_of_commands) + " % complete", end=" ")
             this_line = self.parser.parse(i)
             self.__process(this_line[0], this_line[1], this_line[2])
 
         # Reset the laser head to origin and turn off laser
         self.__reset_laser_state()
+
+        if verbose:
+            print("\rProcessing line " + str(self.number_of_commands) + "\\" +
+                    total_lines + " - " + "{:.0f}".format(100) + " % complete")
 
         return self.__get_string_grid()
