@@ -25,9 +25,9 @@ $ python main.py  <gcode_file_name> <n_rows> <n_cols>
 Mode 2 can be used to run the program for any user defined g-code file for any required grid dimensions (n_rows X n_cols). In this mode, the output is written to a file.
 
 For example:
-```sh
+```
 $ python main.py Formlogic_Logo\FormLogic.gcode 200 200
-```sh
+```
 
 ### Build and Installation
 ```sh
