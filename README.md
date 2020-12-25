@@ -32,7 +32,7 @@ $ python main.py
 #### NOTE
 
 - The program requires python 3.9 or later
-- NumPy is a prerequisite for the project and it can be easily installed by following the instructions here - https://numpy.org/install/ 
+- NumPy is a prerequisite for the project and it can be easily installed by following the instructions [here](https://numpy.org/install/)
 
 
 #### Description of Projects
