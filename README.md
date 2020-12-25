@@ -27,6 +27,7 @@ Mode 2 can be used to run the program for any user defined g-code file for any r
 For example:
 ```sh
 $ python main.py Formlogic_Logo\FormLogic.gcode 200 200
+```sh
 
 ### Build and Installation
 ```sh
