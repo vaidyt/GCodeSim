@@ -42,7 +42,7 @@ $ python main.py
 - LineSeg2D.py - Models a directed line segment in 2D; This class has the method to compute the distance of a pt to the line segment
 - test_simulator.py - Contains unit tests for the main "simulate" method of the Simulator class; Also contains 5 sample inputs for the program.
 - test_LineSeg2D.py - Contains unit tests for "distance_from_pt" of LineSeg2D class
-- FormLogic_Logo - Contains the G-Code for generating the [FormLogic logo](https://github.com/vaidyt/GCodeSim/blob/main/Formlogic_Logo/MATLAB/formLogicLogo.jpg). It also contains a [MATLAB script](https://github.com/vaidyt/GCodeSim/blob/main/Formlogic_Logo/MATLAB/generateFormLogicLogo.m) and additional file/pictures used to generate this g-code. The output of the simulator for this g-code can be found [here](https://github.com/vaidyt/GCodeSim/blob/main/Formlogic_Logo/FormLogic_logo_generated_output.txt)
+- FormLogic_Logo - Contains the G-Code for generating the [FormLogic logo](https://github.com/vaidyt/GCodeSim/blob/main/Formlogic_Logo/MATLAB/formLogicLogo.jpg). It also contains a [MATLAB script](https://github.com/vaidyt/GCodeSim/blob/main/Formlogic_Logo/MATLAB/generateFormLogicLogo.m) and additional file/pictures used to generate this g-code. The output from the GCodeSim simulator for this g-code can be found [here](https://github.com/vaidyt/GCodeSim/blob/main/Formlogic_Logo/FormLogic_logo_generated_output.txt)
 
 ### ToDos
 - Vectorize __make_laser_cut method in Simulator class to accelerate performance
