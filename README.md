@@ -35,7 +35,7 @@ $ python main.py
 - NumPy is a prerequisite for the project and it can be easily installed by following the instructions [here](https://numpy.org/install/)
 
 
-#### Description of Projects
+#### Description of Project Contents
 - main.py - Contains the entry point for the program
 - Simulator.py - Simulator class that does the main simulation [all main logic is in this file]
 - Parser.py - Parser class that parses the g-code string and extracts relevant commands and parameters
