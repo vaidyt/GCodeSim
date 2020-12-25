@@ -45,8 +45,8 @@ $ python main.py
 - FormLogic_Logo - Contains the G-Code for reproducing the [FormLogic logo](https://github.com/vaidyt/GCodeSim/blob/main/Formlogic_Logo/MATLAB/formLogicLogo.jpg). It also contains a [MATLAB script](https://github.com/vaidyt/GCodeSim/blob/main/Formlogic_Logo/MATLAB/generateFormLogicLogo.m) and additional file/pictures used to generate this g-code. The output of the simulator for this g-code can be found [here](https://github.com/vaidyt/GCodeSim/blob/main/Formlogic_Logo/FormLogic_logo_generated_output.txt)
 
 ### ToDos
-- __make_laser_cut method in Simulator class needs to be vectorized (to accelerate the performance)
-- Additional error checks in Parser class (to handle invalid coordinates) to be implemented
+- Vectorize __make_laser_cut method in Simulator class to accelerate performance
+- Implement additional error checks in Parser class (to handle invalid coordinates)
 
 
 License
