@@ -4,9 +4,9 @@ GCodeSim is a python program to simulate laser cutting process. Given the g-code
 
 ### Usage
 ```sh
-$ python main.py <gcode-infile> <n_rows> <n_cols>
+$ python main.py  <gcode_file_name> <n_rows> <n_cols>
 ```
-- gcode-infile: Input g-code file
+- gcode_file_name: Input g-code file
 - n_rows: Number of rows in the grid
 - n_cols: Number of rows in the grid
 
