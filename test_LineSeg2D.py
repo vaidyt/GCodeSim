@@ -140,3 +140,21 @@ class TestLineSeg2D(TestCase):
         pt = [0, -100]
         d = l.distance_from_pt(pt)
         self.assertEqual(100, d)
+
+    def test_16(self):
+        print("Running LineSeg2D Test 15...")
+        # degenerate case
+        l = LineSeg2D(0, 0, 0, 0)
+        # test  is far away on negative y-axis
+        pt = [1, 1]
+        d = l.distance_from_pt(pt)
+        self.assertEqual(math.sqrt(2), d)
+
+    def test_17(self):
+        print("Running LineSeg2D Test 15...")
+        # degenerate case
+        l = LineSeg2D(0, 0, np.finfo(float).eps, np.finfo(float).eps)
+        # test  is far away on negative y-axis
+        pt = [1, 1]
+        d = l.distance_from_pt(pt)
+        self.assertAlmostEqual(math.sqrt(2), d)
