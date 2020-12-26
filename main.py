@@ -31,9 +31,9 @@ if __name__ == '__main__':
     elif len(sys.argv) == 4:
         # Option 2: python main.py <gcode_file_name> <n_rows> <n_cols>
         p = [None] * 3
-        p[0] = TestSimulator.read_file_as_string(sys.argv[1])
+        p[0] = TestSimulator.read_file(sys.argv[1])
         if not p[0]:
-            exit()
+            sys.exit()
 
         p[1] = int(sys.argv[2])
         p[2] = int(sys.argv[3])

@@ -20,6 +20,7 @@ class Simulator:
         self.number_of_commands = self.parser.number_of_lines()
         self.grid = np.zeros((n_rows, n_cols), dtype=bool)
         self.__reset_laser_state()
+        self.number_of_commands_str = str(self.number_of_commands)
 
     def __reset_laser_state(self):
         self.__set_xy(0, 0)
@@ -100,17 +101,20 @@ class Simulator:
 
         return s
 
+    def print_status(self, line_number: float, end_of_line=" "):
+        print("\rProcessing G-code line " + str(line_number) + "/" + self.number_of_commands_str + " - " +
+              "{:.0f}".format(100 * line_number / self.number_of_commands) + " % complete", end=end_of_line)
+
     # Main simulation method that orchestrates the simulation.
     # This method parses the lines in the g-code (one at a time)
     # and handles either the go or laser command appropriately.
     # This method returns a string representation of the work piece
     def simulate(self, verbose: bool = False) -> str:
 
-        total_lines = str(self.number_of_commands)
         for i in range(self.number_of_commands):
             if verbose:
-                print("\rProcessing line " + str(i) + "\\" + total_lines + " - " +
-                      "{:.0f}".format(100*i/self.number_of_commands) + " % complete", end=" ")
+                self.print_status(i)
+
             this_line = self.parser.parse(i)
             self.__process(this_line[0], this_line[1], this_line[2])
 
@@ -118,7 +122,6 @@ class Simulator:
         self.__reset_laser_state()
 
         if verbose:
-            print("\rProcessing line " + str(self.number_of_commands) + "\\" +
-                    total_lines + " - " + "{:.0f}".format(100) + " % complete")
+            self.print_status(self.number_of_commands, "\n")
 
         return self.__get_string_grid()

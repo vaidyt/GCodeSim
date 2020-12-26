@@ -93,11 +93,11 @@ class TestSimulator(TestCase):
     @staticmethod
     def get_test_case_6() -> list:
 
-        program = TestSimulator.read_file_as_string(".\\Formlogic_Logo\\FormLogic.gcode")
+        program = TestSimulator.read_file(".\\Formlogic_Logo\\FormLogic.gcode")
         return program, 200, 200
 
     @staticmethod
-    def read_file_as_string(file_name) -> str:
+    def read_file(file_name) -> str:
         if not os.path.isfile(file_name):
             print("Error: " + file_name + " doesn't exist! Please make sure the input file exists!")
             return ""
@@ -157,5 +157,5 @@ class TestSimulator(TestCase):
         p = TestSimulator.get_test_case_6()
         sim = Simulator(p[0], p[1], p[2])
         computed = sim.simulate(True)
-        reference = TestSimulator.read_file_as_string(".\\Formlogic_Logo\\Formlogic_logo_reference.txt")
+        reference = TestSimulator.read_file(".\\Formlogic_Logo\\Formlogic_logo_reference.txt")
         self.assertTrue(reference == computed)
