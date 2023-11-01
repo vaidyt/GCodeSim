@@ -8,7 +8,7 @@ $ python main.py  <gcode_file_name> <n_rows> <n_cols>
 ```
 - gcode_file_name: Input g-code file
 - n_rows: Number of rows in the grid
-- n_cols: Number of rows in the grid
+- n_cols: Number of cols in the grid
 
 #### Mode 1 (no parameters):
 
